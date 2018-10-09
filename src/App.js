@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Author from './components/Author';
-import Books from './components/Books'
+import Routes from './components/Router'
+
 
 class App extends Component {
   constructor(props) {
@@ -21,11 +21,13 @@ class App extends Component {
 
   render() {
     return (
+    
       <div className="App">
         <Header />
-        <Author />
-        <Books />
+        <Routes />
+       
       </div>
+      
     );
   }
 

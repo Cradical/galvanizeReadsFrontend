@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from '@reach/router'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -17,24 +18,23 @@ export default class Header extends React.Component {
     });
   }
   render() {
-    return (
-      <div>
-        <Navbar color="success faded" light>
-            {/* <img src="https://cdn0.iconfinder.com/data/icons/education-15/500/reader-512.png"></img> */}
-          <NavbarBrand href="/" className="mr-auto text-white">Galvanize Reads</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2 text-white" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/components/" className="text-white">Authors</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap" className="text-white">Books</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+    return ( 
+        <div>
+            <Navbar color="success faded" light>
+            <NavbarBrand><Link to="/" className="mr-auto text-white">Galvanize Reads</Link></NavbarBrand>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2 text-white" />
+            <Collapse isOpen={!this.state.collapsed} navbar>
+                <Nav navbar>
+                <NavItem>
+                    <NavLink><Link to='/authors' className="text-white">Authors</Link></NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink><Link to='/books' className="text-white">Books</Link></NavLink>
+                </NavItem>
+                </Nav>
+            </Collapse>
+            </Navbar>
+        </div>
     );
   }
 }
