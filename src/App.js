@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Author from './components/Author';
+import Books from './components/Books'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+      this.state = {
+        data : []
+      }
+  }
+ 
+  componentDidMount() {
+    let apiURL = 'http://localhost:3000/authors'
+    fetch(apiURL)
+      .then(response => response.json())
+      .then(response => this.setState({ data : response }))  
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
+        <Author />
+        <Books />
       </div>
     );
   }
+
+  
+
 }
 
 export default App;
