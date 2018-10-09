@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Routes from './components/Router'
-
+import { Router } from "@reach/router";
+import AuthorsPage from './components/AuthorsPage'
+import Home from './components/Home'
 
 class App extends Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class App extends Component {
 
   render() {
     return (
-    
       <div className="App">
         <Header />
-        <Routes />
-       
+          <Router>
+            <Home path="/" />
+            <AuthorsPage path="/authors" loadAuthors={this.state.data}/>      
+          </Router>
       </div>
-      
     );
   }
 
