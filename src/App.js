@@ -16,20 +16,20 @@ class App extends Component {
   }
  
   componentDidMount() {
-    let authorURL = 'http://localhost:3000/authors'
+    let authorURL = 'https://galv-reads-001.herokuapp.com/authors'
     fetch(authorURL)
       .then(response => response.json())
       .then(response => this.setState({ authors : response }))  
       console.log('dtat: ', this.state.authors)
 
-    let bookURL = 'http://localhost:3000/books'
+    let bookURL = 'https://galv-reads-001.herokuapp.com/books'
     fetch(bookURL)
       .then(response => response.json())
       .then(response => this.setState({ books : response }))
 
     }
     addAuthor = (authors) => {
-    let addAuthorURL = 'http://localhost:3000/authors'
+    let addAuthorURL = 'https://galv-reads-001.herokuapp.com/authors'
     fetch(addAuthorURL, {
       method: 'POST',
       headers: {
