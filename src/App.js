@@ -3,6 +3,7 @@ import Header from './components/Header';
 import { Router } from "@reach/router";
 import AuthorsPage from './components/AuthorsPage'
 import BooksPage from './components/BooksPage'
+import AddAuthor from './components/AddAuthor'
 import Home from './components/Home'
 
 class App extends Component {
@@ -25,7 +26,21 @@ class App extends Component {
     fetch(bookURL)
       .then(response => response.json())
       .then(response => this.setState({ books : response }))
-  }
+
+    }
+    addAuthor = (authors) => {
+    let addAuthorURL = 'http://localhost:3000/authors'
+    fetch(addAuthorURL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(authors)
+    })
+    console.log('hit')
+    console.log('authors', authors)
+    }
 
 
   render() {
@@ -36,6 +51,7 @@ class App extends Component {
             <Home path="/" />
             <AuthorsPage path="/authors" loadAuthors={this.state.authors}/> 
             <BooksPage path="/books" loadBooks={this.state.books} />    
+            <AddAuthor path="/addauthor" addAuthor={this.addAuthor}/>
           </Router>
       </div>
     );
