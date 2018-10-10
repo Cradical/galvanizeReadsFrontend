@@ -12,7 +12,7 @@ const Home = (props) => {
           <CardTitle>Authors</CardTitle>
           <CardSubtitle>The G.Reads Community</CardSubtitle>
           <CardText>Click below to browser the recommended authors we have in the library.</CardText>
-          <Button><Link to="/authors" className="text-white">Button</Link></Button>
+          <Button><Link to="/authors" className="text-white">The Authors</Link></Button>
         </CardBody>
       </Card>
       <br>
@@ -24,7 +24,7 @@ const Home = (props) => {
           <CardTitle>Books</CardTitle>
           <CardSubtitle>The G.Reads Library</CardSubtitle>
           <CardText>Check out the books on our digital shelves. Great for gaining new skills.</CardText>
-          <Button>Button</Button>
+          <Button><Link to="/books" className="text-white">The Books</Link></Button>
         </CardBody>
       </Card>
     </div>

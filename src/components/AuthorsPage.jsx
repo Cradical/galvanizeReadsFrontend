@@ -2,9 +2,8 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-const authorData = (data) => {
-    return data.map(element => {
-        console.log('element: ', element)
+const authorData = (authors) => {
+    return authors.map(element => {
         return (
             <Card className="m-4">
                 <CardImg top width="100%" src={element.portrait_url} alt="Card image cap" />
