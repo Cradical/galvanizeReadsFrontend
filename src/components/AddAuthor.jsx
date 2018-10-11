@@ -14,7 +14,7 @@ export default class AddAuthor extends React.Component {
     }
 
     onSubmit = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         const { first_name, last_name , author_bio, portrait_url } = this.state
         const authors = {
             first_name,
