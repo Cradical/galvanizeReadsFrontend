@@ -7,7 +7,7 @@ import { Link } from '@reach/router'
 
 
 const AuthorsPage = (props) => {
-    
+
     const authorData = (authors) => {
         return authors.map(element => {
             return (
@@ -17,7 +17,7 @@ const AuthorsPage = (props) => {
                     <CardTitle>Author</CardTitle>
                     <CardSubtitle>{element.first_name} {element.last_name}</CardSubtitle>
                     <CardText>{element.author_bio}</CardText>
-                    <Button onClick={() => props.setAuthorId(element.id)}><Link to="/authorProfile">Check This Author</Link></Button>
+                    <Button onClick={() => props.setAuthorId(element.id)}><Link to="/authorProfile" className="text-white">See More</Link></Button>
                     </CardBody>
                 </Card>
             );

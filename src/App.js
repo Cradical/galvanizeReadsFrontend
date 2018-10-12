@@ -13,7 +13,9 @@ class App extends Component {
       this.state = {
         authors : [],
         books: [],
-        authorId: 1
+        booksAuthors: [],
+        authorId: 1,
+        bookId: 1
       }
   }
  
@@ -22,14 +24,17 @@ class App extends Component {
     fetch(authorURL)
       .then(response => response.json())
       .then(response => this.setState({ authors : response }))  
-      console.log('dtat: ', this.state.authors)
 
     let bookURL = 'https://galv-reads-001.herokuapp.com/books'
     fetch(bookURL)
       .then(response => response.json())
       .then(response => this.setState({ books : response }))
 
-    }
+    let booksAuthorsURL = 'http://localhost:3000/booksAuthors'
+      fetch(booksAuthorsURL)
+        .then(response => response.json())
+        .then(response => this.setState({ booksAuthors : response.booksAuthors }))
+      }
     addAuthor = (authors) => {
     let addAuthorURL = 'https://galv-reads-001.herokuapp.com/authors'
     fetch(addAuthorURL, {
@@ -40,6 +45,7 @@ class App extends Component {
       },
       body: JSON.stringify(authors)
     })
+
     }
 
     setAuthorId = (id) => {
@@ -47,10 +53,18 @@ class App extends Component {
         authorId : id
       })
     }
+
+    setBookId = (id) => {
+      console.log('hit after click')
+      this.setState({
+        bookId : id
+      })
+    }
     
     
     render() {
-      console.log('authorId: ', this.state.authorId)
+      console.log('authorId/App.js: ', this.state.authorId)
+      console.log('bookId/App.js: ', this.state.bookId)
     return (
       <div className="App">
         <Header />
@@ -59,7 +73,11 @@ class App extends Component {
             <AuthorsPage path="/authors" loadAuthors={this.state.authors} setAuthorId={this.setAuthorId}/> 
             <BooksPage path="/books" loadBooks={this.state.books} />    
             <AddAuthor path="/addauthor" addAuthor={this.addAuthor}/>
-            <AuthorProfile path="/authorProfile" authorId={this.state.authorId} loadAuthors={this.state.authors}/>
+            <AuthorProfile path="/authorProfile"
+              authorId={this.state.authorId} 
+              bookId={this.state.bookId}
+              loadAuthors={this.state.authors}
+              booksAuthors={this.state.booksAuthors} />
           </Router>
       </div>
     );
