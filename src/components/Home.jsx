@@ -1,12 +1,14 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle, CardSubtitle, Button, CardDeck } from 'reactstrap';
 import { Link } from '@reach/router'
 
 const Home = (props) => {
+
   return (
     <div>
-      <Card className="m-4">
+    <CardDeck className="mx-2 mt-2">
+      <Card className="display-card">
         <CardImg top width="100%" src="https://bit.ly/2C5QNkh" alt="Card image cap" />
         <CardBody>
           <CardTitle>Authors</CardTitle>
@@ -15,10 +17,8 @@ const Home = (props) => {
           <Button><Link to="/authors" className="text-white">The Authors</Link></Button>
         </CardBody>
       </Card>
-      <br>
-
-      </br>
-      <Card className="m-4">
+  
+      <Card className="display-card">
         <CardImg top width="100%" src="https://bit.ly/2Cz56Po" alt="Card image cap" />
         <CardBody>
           <CardTitle>Books</CardTitle>
@@ -27,6 +27,7 @@ const Home = (props) => {
           <Button><Link to="/books" className="text-white">The Books</Link></Button>
         </CardBody>
       </Card>
+    </CardDeck>
     </div>
   );
 };

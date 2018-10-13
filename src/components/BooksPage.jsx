@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle, CardSubtitle, CardColumns, Button } from 'reactstrap';
 
 const bookData = (books) => {
     return books.map(element => {
         console.log('element: ', element)
         return (
-            <Card className="m-4">
+            <Card>
                 <CardImg top width="100%" src={element.book_cover_url} alt="Card image cap" />
                 <CardBody>
                 <CardTitle>{element.book_title}</CardTitle>
@@ -24,7 +24,9 @@ const BooksPage = (props) => {
     <div>
         <section>
             <h2 className="m-3">The Books</h2>
-            {props.loadBooks.books ? bookData(props.loadBooks.books) : null } 
+            <CardColumns className="mx-2">
+                {props.loadBooks.books ? bookData(props.loadBooks.books) : null } 
+            </CardColumns>
         </section>
     </div>
   );

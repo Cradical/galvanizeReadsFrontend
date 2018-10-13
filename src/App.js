@@ -60,8 +60,7 @@ class App extends Component {
         bookId : id
       })
     }
-    
-    
+
     render() {
       console.log('authorId/App.js: ', this.state.authorId)
       console.log('bookId/App.js: ', this.state.bookId)
