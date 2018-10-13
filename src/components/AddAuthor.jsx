@@ -40,7 +40,7 @@ export default class AddAuthor extends React.Component {
           </Col>
           <Label for="lastName" sm={2}></Label>
           <Col sm={10}>
-            <Input type="text" name="last_name" id="lastName" placeholder="Last Name" required onChange={this.onChange}/>
+            <Input className="mt-3" type="text" name="last_name" id="lastName" placeholder="Last Name" required onChange={this.onChange}/>
           </Col>
         </FormGroup>
         <FormGroup row>
