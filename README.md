@@ -13,5 +13,5 @@ There are some additional features, such as search, that are nice-to-haves, but 
 
 Link to deployed site:
 
-https://galvanizereads-86830.firebaseapp.com/
+
 
