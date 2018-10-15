@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, CardColumns, Button } from 'reactstrap';
+import { Link } from '@reach/router'
 
 const bookData = (books) => {
     return books.map(element => {
-        console.log('element: ', element)
         return (
             <Card>
                 <CardImg top width="100%" src={element.book_cover_url} alt="Card image cap" />
@@ -12,7 +12,7 @@ const bookData = (books) => {
                 <CardTitle>{element.book_title}</CardTitle>
                 <CardSubtitle>{element.book_genre}</CardSubtitle>
                 <CardText>{element.book_description}</CardText>
-                <Button>Button</Button>
+                <Button><Link to="/bookauthors" className="text-white">See Authors</Link></Button>
                 </CardBody>
             </Card>
         );
